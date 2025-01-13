@@ -25,7 +25,7 @@ const login_user = async (req, res) => {
           
 
                 if(isMatch || isMatchBCrypt){        
-                    db.query("SELECT * FROM users WHERE ( email =?)", [user], async (err, verified) =>{
+                    db.query("SELECT * FROM users WHERE ( email =?)", [email], async (err, verified) =>{
                         if(err){
                             return res.json({error:err})
                         }
@@ -60,7 +60,9 @@ const login_user = async (req, res) => {
             
         })
 } catch (error) {
-  throw new Error('Error executing query: ' + error.message);
+    console.error(error.message)
+//   throw new Error('Error executing query: ' + error.message); 
+  res.json({error:error.message})
 }
     }
 
