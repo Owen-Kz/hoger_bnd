@@ -30,4 +30,4 @@ app.use(cookie());
 app.use("/", require("./routes/pages"));
 
 server.listen(PORT); 
-console.log("Server is running on", PORT)
+console.log("Server is running on", PORT) 
