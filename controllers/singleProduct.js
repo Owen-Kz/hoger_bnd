@@ -16,9 +16,9 @@ const singleProduct = async (req,res) =>{
                     }else{
                         const files = file
                      
-                        const ContactLink = `https://wa.me/${process.env.WhatsApp}?text=I'm%20inquiring%20about%20the%20${data[0].slug}`
+                        const ContactLink = `https://wa.me/${process.env.WhatsApp}?text=Hi,%20I'm%20contacting%20you%20by%20clicking%20on%20the%20whatsapp%20button%20on%20your%20website. %20https://hogarluxe.onrender.com/product/${data[0].slug}%20I'm%20inquiring%20about%20the%20*${data[0].title}*%20My%20Name%20is%20...`
                         
-                        const whatsAppMessage = `https://wa.me/${process.env.WhatsApp}?text=I'm%20inquiring%20about%20the%20`
+                        const whatsAppMessage = `https://wa.me/${process.env.WhatsApp}?text=Hi,%20I'm%20contacting%20you%20by%20clicking%20on%20the%20whatsapp%20button%20on%20your%20website. %20https://hogarluxe.onrender.com%20My%20Name%20is%20...`
 
                         return res.json({success:"products", product:data[0], files:files, contactLink:ContactLink, whatsapp:whatsAppMessage})
                     }
