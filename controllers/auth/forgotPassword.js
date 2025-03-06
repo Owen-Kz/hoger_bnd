@@ -38,13 +38,13 @@ apiKey.apiKey = process.env.BREVO_API;
                         // to: [{ email: to, name: 'Recipient Name' }],
                         to: [{ email: UserEmail, name: username}],
                 
-                        sender: { email: 'support@hluxegift.com', name: 'Amaslink' },
+                        sender: { email: 'support@hluxegift.com', name: 'HluxeGift' },
                         subject: "Password Reset Token",
                         htmlContent: `<html><body>
                         <p>Hello, ${username}, Your 6-digit reset code is </p>
                         <p><h4>${resetCOde}</h4></p>
                         <p>Ignore if you didn't make this request</p>
-                        <p>${currentYear} (c) Amaslink.com
+                        <p>${currentYear} (c) HluxeGift.com
                         </body></html>`
                 };
                 await SendMain(email, UserEmail)
