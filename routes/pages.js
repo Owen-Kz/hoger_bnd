@@ -35,7 +35,8 @@ router.post("/y/register", RegisterUser)
 
 
 router.get("*", (req,res) =>{
-    res.redirect(process.env.CurrentDOMAIN)
+    // res.redirect(process.env.CurrentDOMAIN)
+    res.json({error:"Broken Pipe"})
 })
 
 
