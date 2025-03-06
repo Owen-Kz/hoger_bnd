@@ -15,13 +15,20 @@ router.use(bodyParser.json({
     }
   }));
 
-router.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
+  router.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, PATCH, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With");
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+
+    // Handle preflight requests (OPTIONS)
+    if (req.method === "OPTIONS") {
+        return res.status(200).end();
+    }
+
     next();
-  });
+});
+
 
 router.post("/y/uploadProduct", UploadProduct)
 router.post("/y/allProducts", products)
