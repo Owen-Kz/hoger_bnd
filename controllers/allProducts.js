@@ -2,6 +2,7 @@
 const db = require('../routes/db.config');
 
 const products = async (req,res) =>{
+    try{
     const {page} = req.body
     let items_per_page = 20
     const OFFSET  = (page - 1) * items_per_page
@@ -72,6 +73,11 @@ const products = async (req,res) =>{
         
     })
 }
+    }catch(error){
+        res.json({error:error.message})
+    }
+    
+
 }
 
 module.exports = products
