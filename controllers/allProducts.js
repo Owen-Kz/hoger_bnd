@@ -16,7 +16,7 @@ const products = async (req,res) =>{
         db.query("SELECT COUNT(*) AS sumproducts FROM products WHERE (LOWER(title) COLLATE utf8mb4_unicode_ci LIKE LOWER(?) OR LOWER(description) COLLATE utf8mb4_unicode_ci LIKE LOWER(?) OR LOWER(category) COLLATE utf8mb4_unicode_ci LIKE LOWER(?))",[`%${searchQuery}%`, `%${searchQuery}%`, `%${searchQuery}%`], (err, CountResult) => {
             if (err) {
               console.error(err);
-              return res.json({error:"Internal Server Error"});
+              return res.json({error:"Internal Server Error", message:err});
             }
             const Count = JSON.stringify(CountResult[0]["sumproducts"]);
             totalPages = Math.ceil(Count / items_per_page);
@@ -47,7 +47,7 @@ const products = async (req,res) =>{
     db.query("SELECT COUNT(*) AS sumproducts FROM products WHERE 1", (err, CountResult) => {
         if (err) {
           console.error(err);
-          return res.status(500).send("Internal Server Error");
+          return res.json({error:"error",message:err});
         }
         const Count = JSON.stringify(CountResult[0]["sumproducts"]);
         totalPages = Math.ceil(Count / items_per_page);
