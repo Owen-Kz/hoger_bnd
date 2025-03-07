@@ -32,9 +32,9 @@ app.use("/", require("./routes/pages"));
 // app.use("/", require(__dirname +"/routes/pages"));
 
 // Catch-all route for undefined routes
-app.all("*", (req, res) => {
-    res.status(404).json({ error: "Route Not Found" });
-});
+// app.all("*", (req, res) => {
+//     res.status(404).json({ error: "Route Not Found" });
+// });
 
 server.listen(PORT); 
 console.log("Server is running on", PORT) 
