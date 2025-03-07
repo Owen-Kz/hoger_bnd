@@ -28,7 +28,8 @@ app.use(cookie());
 
 
 // app.use("/", require("./routes/pages"));
-app.use("/y", require("./routes/pages"));
+// app.use("/y", require("/routes/pages"));
+app.use("/", require(__dirname +"/routes/pages"));
 
 // Catch-all route for undefined routes
 app.all("*", (req, res) => {
