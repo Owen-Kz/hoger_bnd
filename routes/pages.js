@@ -37,10 +37,9 @@ router.post("/y/loggedIn", LoggedIn)
 router.post("/y/singleProduct", singleProduct) 
 router.post("/y/otherProducts", otherProducts)
 
-router.post("/y/register", RegisterUser)
+// router.post("/y/register", RegisterUser)
 
 
-router.get("/y/dsx", products)
 router.get("*", (req,res) =>{
     // res.redirect(process.env.CurrentDOMAIN)
     res.json({error:"Broken Pipe"})
