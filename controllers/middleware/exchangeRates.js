@@ -24,7 +24,12 @@ try{
       }
 }catch(error){
     console.error("Error updating exchange rates:", error);
-    return next()
+    return res.json({
+        success: "Exchange rate not found",
+          currency: "NGN",
+          current_rate: 1,
+          country: "Nigeria"
+        })
 }
 }
 
