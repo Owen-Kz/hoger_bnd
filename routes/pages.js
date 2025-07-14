@@ -8,6 +8,8 @@ const LoggedIn = require("../controllers/auth/loggedIn");
 const singleProduct = require("../controllers/singleProduct");
 const otherProducts = require("../controllers/otherProducts");
 const RegisterUser = require("../controllers/auth/register");
+const updateExchangeRate = require("../controllers/countries/updateExchangeRates");
+const exchangeRates = require("../controllers/middleware/exchangeRates");
 router.use(express.json());
 router.use(bodyParser.json({
     verify: (req, res, buf) => {
@@ -36,6 +38,8 @@ router.post("/y/login", login_user)
 router.post("/y/loggedIn", LoggedIn)
 router.post("/y/singleProduct", singleProduct) 
 router.post("/y/otherProducts", otherProducts)
+router.post("/y/updateExchangeRate", updateExchangeRate)
+router.post("/y/getExchangeRate", exchangeRates)
 
 // router.post("/y/register", RegisterUser)
 
