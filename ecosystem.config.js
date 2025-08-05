@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: 'hg-api',
-      script: 'server.js',
+      script: 'app.js',
       watch: false,
       autorestart: true,
       restart_delay: 5000,
